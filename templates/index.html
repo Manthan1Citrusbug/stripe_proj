@@ -111,7 +111,7 @@
                {% for i in product %}
                   <div class="col-md-3 col-sm-6">
                      <div class="protien">
-                        <figure><img src="../static/images/pro1.png" alt="#"/></figure>
+                        <figure><img src="{{ i.product_img.url }}" alt="#"/></figure>
                         <h3>₹{{i.product_price}}</h3>
                         <span> {{i.name}}  </span>
                         <a class="read_more mar_top" href="{% url 'product-detail' pk=i.id %}"> Buy Now</a>

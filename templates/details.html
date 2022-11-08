@@ -103,7 +103,7 @@
                         <div class="row d_flex">
                             <div class="col-md-6">
                                 <div class="body_img">
-                                    <figure><img src="../static/images/pro1.png" style="height:400px; width: 300px; margin: auto;" alt="#"/></figure>
+                                    <figure><img src="..{{ product.product_img.url }}" style="height:400px; width: 300px; margin: auto;" alt="#"/></figure>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -112,11 +112,11 @@
                                     <p>{{product.product_des}}</p>
                                     <p>₹{{product.product_price}}</p>
                                     <!-- <a class="read_more" href="Javascript:void(0)" onclick="enable_payment()"> Buy Now</a> -->
-                                    <form action="../create-checkout-session/" method="POST">
+                                    <!-- <form action="../create-checkout-session/" method="POST"> -->
                                         {% csrf_token %}
-                                        <input type="hidden" name="id" id="id" value="{{product.id}}">
-                                        <button type="submit" id="checkout-button">Checkout</button>
-                                    </form>    
+                                        <input type="hidden" name="product_id" id="product_id" value="{{product.id}}">
+                                        <button type="submit" class="read_more" id="checkout-button">Checkout</button>
+                                    <!-- </form>     -->
                                     
                                     <!-- <button id="submit" class="read_more">
                                             <div class="spinner hidden" id="spinner"></div>
@@ -257,6 +257,6 @@
       <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
       <script src="https://js.stripe.com/v3/"></script>
 
-      <script src="../static/js/checkout_session.js" defer></script>
+      <script src="../static/js/checkout_session.js"></script>
    </body>
 </html>

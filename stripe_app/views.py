@@ -51,7 +51,7 @@ class CheckoutSessionView(View):
                         'unit_amount': product.product_price * 100,
                         'product_data': {
                             'name': product.product_name,
-                            # 'images': ['https://i.imgur.com/EHyR2nP.png'],
+                            'images': ['https://i.imgur.com/EHyR2nP.png'],
                         },
                     },
                     'quantity': 1,
@@ -64,5 +64,5 @@ class CheckoutSessionView(View):
             success_url=YOUR_DOMAIN + '/success/',
             cancel_url=YOUR_DOMAIN + '/cancel/',
         )
-        return redirect(checkout_session.url, code=303)
+        return JsonResponse({'url':checkout_session.url, 'code':303})
         # return JsonResponse( {'id':checkout_session.id})
